@@ -2,7 +2,7 @@ class Meal
   attr_accessor :id # read and write :id
   attr_reader :name, :price
 
-  # This CLASS METHOD (not the self.csv_headers)
+  # This CLASS METHOD (note the self.csv_headers)
   # is REFERENCED/CALLED in BaseRepository.
   #
   # It needs to be defined in here because the Meal
