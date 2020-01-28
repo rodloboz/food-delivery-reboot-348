@@ -35,7 +35,7 @@ class Customer
   #
   # #<Customer:0x00007ff4be01dc08>
   #
-  # We want to teache our model to display its data as
+  # We want to teach our model to display its data as
   # a string so that we can use it in the View
   # (see BaseView for method call)
   def to_s
