@@ -57,7 +57,7 @@ class BaseRepository
       # name doesnt need to be converted
       row[:id] = row[:id].to_i
 
-      # row is an Hash-like object (Duck Typing)
+      # row is a Hash-like object (Duck Typing)
       # Because we need to do Meal.new or Customer.new
       # depending on whether we are in a MealRepository
       # or a CustomerRepository (which inherit from BaseRepository)
