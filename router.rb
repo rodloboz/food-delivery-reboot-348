@@ -3,7 +3,7 @@
 class Router
   def initialize(controllers = {})
     # Store ALL controllers in instance variables
-    # so that I can user them throughout the Router
+    # so that I can use them throughout the Router
     @meals_controller = controllers[:meals_controller]
     @customers_controller = controllers[:customers_controller]
     @running = true
@@ -15,7 +15,7 @@ class Router
     puts "           --           "
 
     # After an action is done, I want to
-    # display the MENU again
+    # display the MENU again (looping)
     while @running
       display_tasks
       action = gets.chomp.to_i
