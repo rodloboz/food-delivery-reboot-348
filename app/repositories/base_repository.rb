@@ -62,7 +62,7 @@ class BaseRepository
       # depending on whether we are in a MealRepository
       # or a CustomerRepository (which inherit from BaseRepository)
       # the build_element will be implemented in the
-      # CHILD repositories
+      # CHILD repositories (see MealRepository and CustomerRepository)
       @elements << build_element(row)
     end
 
@@ -75,7 +75,7 @@ class BaseRepository
     CSV.open(@csv_filepath, 'wb') do |csv|
       # Therefore, we grab this first element from the Array
       # and get its class (it will be either Meal or Customer)
-      # and then user Duck Typing again to ask the class
+      # and then use Duck Typing again to ask the class
       # what are its headers:
       #
       # (see both models for implementation)
