@@ -9,6 +9,8 @@ The main components are:
 - **Meals** that can be ordered
 - **Orders** made by customers, and assigned to a given delivery guy.
 
+![System Diagram](system_diagram.png)
+
 ## 1 - (`Meal`)
 
 Your restaurant sells food, so you need a way to store the meals that can be ordered. Each meal has a name and a price. Write some code to model this, and create a repository that will read/write the meals from a CSV.
