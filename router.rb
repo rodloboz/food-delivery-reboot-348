@@ -6,7 +6,9 @@ class Router
     # so that I can use them throughout the Router
     @meals_controller = controllers[:meals_controller]
     @customers_controller = controllers[:customers_controller]
+    @sessions_controller = controllers[:sessions_controller]
     @running = true
+    @user = nil
   end
 
   # This starts the actual program:
@@ -17,14 +19,24 @@ class Router
     # After an action is done, I want to
     # display the MENU again (looping)
     while @running
-      display_tasks
-      action = gets.chomp.to_i
-      print `clear`
-      route_action(action)
+      # check if there is a user
+      # if there's no user, sign in user (SessionsController)
+      @user = @sessions_controller.create
+      # if there is a user, display tasks
+      while @user
+        display_tasks
+        action = gets.chomp.to_i
+        print `clear`
+        route_action(action)
+      end
     end
   end
 
   private
+
+  def destroy_session
+    @user = nil
+  end
 
   # Dispatch the User REQUEST to the
   # SPECIFIC controller action/method
@@ -35,13 +47,15 @@ class Router
     when 2 then @meals_controller.add
     when 3 then @customers_controller.list
     when 4 then @customers_controller.add
-    when 9 then stop
+    when 9 then destroy_session
+    when 0 then stop
     else
       puts "Please press 1, 2, 3, 4 or 9"
     end
   end
 
   def stop
+    destroy_session
     @running = false
   end
 
@@ -52,6 +66,7 @@ class Router
     puts "2 - Add a meal"
     puts "3 - List all customers"
     puts "4 - Add a customer"
-    puts "9 - Stop and exit the program"
+    puts "9 - Log out"
+    puts "0 - Stop and exit the program"
   end
 end
