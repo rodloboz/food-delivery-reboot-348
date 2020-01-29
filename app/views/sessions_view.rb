@@ -1,4 +1,3 @@
-
 require 'io/console'
 
 class SessionsView
