@@ -12,6 +12,8 @@ class Router
   end
 
   # This starts the actual program:
+  #
+  # rubocop:disable Metrics/MethodLength
   def run
     puts "Welcome to the Le Wagon Bistro!"
     puts "           --           "
@@ -24,24 +26,14 @@ class Router
       @user = @sessions_controller.create
       # if there is a user, display tasks
       while @user # is an Employee instance
-        if @user.manager?
-          display_manager_tasks
-          action = gets.chomp.to_i
-          print `clear`
-          route_manager_action(action)
-        else
-          display_delivery_guy_tasks
-          action = gets.chomp.to_i
-          print `clear`
-          route_delivery_guy_action(action)
-        end
-        # display_tasks
+        @user.manager? ? display_manager_tasks : display_delivery_guy_tasks
         action = gets.chomp.to_i
-        # print `clear`
-        # route_action(action)
+        print `clear`
+        @user.manager? ? route_manager_action(action) : route_delivery_guy_action(action)
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

@@ -13,7 +13,7 @@ class EmployeeRepository < BaseRepository
     # go through the list of employees
     # filter out the managers
     # find => returns 1 elements
-    #select => return a new []
+    # select => return a new []
     employees.select { |employee| employee.delivery_guy? }
   end
 

@@ -1,6 +1,3 @@
-
-
-
 class Order
   attr_accessor :id # defines a getter and a setter
   attr_reader :meal, :employee, :customer
@@ -24,6 +21,13 @@ class Order
   def to_array
     # @meal => is a Meal instance
     [@id, @delivered, @meal.id, @employee.id, @customer.id]
+  end
+
+  # Teach each Order instance to display itself as a String
+  def to_s
+    "Customer: #{@customer.name} - #{@customer.address} | "\
+    "Meal: #{@meal.name} - Price: $#{@meal.price} | "\
+    "Employee: #{@employee.username}"
   end
 
   # We are defined a getter with a different syntax (?)

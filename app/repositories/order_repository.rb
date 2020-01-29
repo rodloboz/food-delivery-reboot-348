@@ -1,5 +1,3 @@
-
-
 class OrderRepository < BaseRepository
   def initialize(csv_filepath, meal_repository, employee_repository, customer_repository)
     @meal_repository = meal_repository

@@ -32,6 +32,10 @@ class BaseRepository
     @elements.find { |element| element.id == id }
   end
 
+  def save
+    save_csv
+  end
+
   # receives a Meal/Customer instance
   def add(element)
     # set element id
